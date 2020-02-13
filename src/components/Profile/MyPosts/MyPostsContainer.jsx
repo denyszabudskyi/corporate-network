@@ -3,22 +3,24 @@ import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../red
 import MyPosts from "./MyPosts";
 import {connect} from "react-redux";
 
-let mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
     return {
-        newPostText: state.profilePage.newPostText,
-        posts: state.profilePage.posts
+        posts: state.profilePage.posts,
+        newPostText: state.profilePage.newPostText
     }
-};
-let mapDispatchToProps = (dispatch) => {
+}
+
+const mapDispatchToProps = (dispatch) => {
     return {
         updateNewPostText: (text) => {
-            dispatch( updateNewPostTextActionCreator(text) );
+            let action = updateNewPostTextActionCreator(text);
+            dispatch(action);
         },
-        addPost : () => {
+        addPost: () => {
             dispatch(addPostActionCreator());
-        },
+        }
     }
-};
+}
 
 const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
 

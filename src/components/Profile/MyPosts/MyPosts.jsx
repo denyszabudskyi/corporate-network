@@ -10,12 +10,12 @@ const MyPosts = (props) => {
 
     let onAddPost = () => {
         props.addPost();
-    };
+    }
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
         props.updateNewPostText(text);
-    };
+    }
 
     return (
         <div className={s.postsBlock}>
@@ -34,6 +34,6 @@ const MyPosts = (props) => {
             </div>
         </div>
     )
-};
+}
 
 export default MyPosts;
